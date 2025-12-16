@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Elemental Stay</title>
+    <link rel="stylesheet" href="../CSS/footer/footer.css">
+    <link rel="stylesheet" href="../CSS/contactos/contactos.css"> 
+    <link rel="stylesheet" href="../CSS/header/header.css">
+    <link rel="shortcut icon" href="../img/logo.png"/>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo">
+            <h1 class="logo-title">ELEMENTAL STAY</h1>
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        
+        <ul>
+            <li><a href="../index.html" id="boton-superior"><b>INICIO</b></a></li>
+            <li><a href="../reservas/reservas.html" class="boton-superior"><b>RESERVAS</b></a></li>            
+            <li><a href="../hoteles/hoteles.html" id="boton-superior"><b>HOTELES</b></a></li>
+            <li><a href="contactos.html" id="boton-superior"><b>CONTACTO</b></a></li>
+            
+            <li class="profile" id="profileLi" style="display: none;">
+                <a href="javascript:void(0);" onclick="toggleProfileMenu(event)" id="profileButton"><b>PERFIL</b></a>
+                <div class="profile-menu" id="profileMenu">
+                    <a href="../perfil/perfil.html">Ver Perfil</a>
+                    <a href="#" onclick="cerrarSesionSimulado()" class="logout">Cerrar Sesión</a>
+                </div>
+            </li>
+
+            <li id="loginLi">
+                <a href="../inicio_session/inicio_session.html" id="boton-superior"><b>INICIAR SESIÓN</b></a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleProfileMenu(event) {
+            event.stopPropagation();
+            var menu = document.getElementById('profileMenu');
+            menu.classList.toggle('show');
+        }
+
+        function cerrarSesionSimulado() {
+            alert("Has cerrado sesión (Modo Demo)");
+            document.getElementById('profileLi').style.display = 'none';
+            document.getElementById('loginLi').style.display = 'block';
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('#profileButton') && !event.target.matches('.profile-menu') && !event.target.closest('.profile')) {
+                var dropdowns = document.getElementsByClassName('profile-menu');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        };
+    </script>
+
+
+    <main class="contact-container">
+        <h1>Contáctanos</h1>
+        <p>¿Tienes algún comentario, duda o problema? Completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible.</p>
+
+        <form class="contact-form" onsubmit="simularEnvio(event)">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Escribe tu nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" placeholder="Escribe tu comentario o problema aquí..." rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+    </main>
+
+    <script>
+        function simularEnvio(event) {
+            event.preventDefault(); // Evita que la página se recargue
+            alert("¡Mensaje enviado correctamente! (Simulación)");
+            // Opcional: Redirigir al inicio
+            window.location.href = "../index.html";
+        }
+    </script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Sobre Nosotros</h4>
+                <p>Elemental Stay es tu plataforma para encontrar los mejores alojamientos al mejor precio, con opciones personalizadas para cada tipo de viajero.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Útiles</h4>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../footer/AcercaDe.html">Acerca de</a></li>
+                        <li><a href="contactos.html">Contacto</a></li>
+                        <li><a href="../footer/TerminosyCondiciones.html">Términos y Condiciones</a></li>
+                    </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="../icon-facebook.svg" alt="Facebook"></a>
+                    <a href="#"><img src="../icon-twitter.svg" alt="Twitter"></a>
+                    <a href="#"><img src="../icon-instagram.svg" alt="Instagram"></a>
+                    <a href="#"><img src="../icon-youtube.svg" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Elemental Stay. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../JS/Header.js"></script>
+</body>
+</html>

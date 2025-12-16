@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Elemental Stay</title>
+    <link rel="stylesheet" href="../CSS/inicio_sesion/inicio_session.css">
+    <link rel="shortcut icon" href="../img/logo.png"/>
+</head>
+<body>
+    <div class="login-container">
+        <div class="image-container">
+            <img src="../img/logo.png" alt="Imagen de inicio de sesión">
+        </div>
+
+        <div class="form-container">
+            <h2>Iniciar Sesión</h2>
+            <p>Ingresa tus datos para acceder a tu cuenta</p>
+
+            <form onsubmit="simularLogin(event)">
+                <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
+                <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                
+                <button type="submit" class="btn-login">Iniciar Sesión</button>
+            </form>
+
+            <div class="form-footer">
+                <p>¿No tienes una cuenta? <a href="../registro/registro.html">Regístrate aquí</a></p>
+                <p><a href="../index.html">Volver al Inicio</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function simularLogin(event) {
+            // 1. Evita que la página se recargue y busque PHP
+            event.preventDefault();
+
+            // 2. Coge el email escrito para el saludo
+            const email = document.getElementById('email').value;
+
+            // 3. Muestra mensaje de éxito
+            alert("¡Bienvenido/a de nuevo, " + email + "! (Modo Demo)");
+
+            // 4. Redirige a la página principal
+            // Al volver al index, tú tendrás que activar manualmente el modo "Perfil" 
+            // en el HTML del index si quieres que salga la foto en vez del botón de login.
+            window.location.href = "../index.html";
+        }
+    </script>
+</body>
+</html>

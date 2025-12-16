@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="../CSS/registro/registro.css">
+    <link rel="shortcut icon" href="../img/logo.png"/>
+</head>
+<body>
+    <div class="login-container">
+        <div class="image-container">
+            <img src="../img/logo.png" alt="Imagen de Registro">
+        </div>
+
+        <div class="form-container">
+            <h2>Regístrate</h2>
+            <p>Crea tu cuenta para Elemental Stay y sus servicios</p>
+
+            <form onsubmit="simularRegistro(event)">
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="password" name="confirm-password" placeholder="Confirma tu contraseña" required>
+                
+                <button type="submit" class="btn-login">Registrarse</button>
+            </form>
+
+            <div class="form-footer">
+                <a href="#">¿Tienes alguna duda?</a>
+                <a href="../inicio_session/inicio_session.html">Volver</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function simularRegistro(event) {
+            event.preventDefault(); // Evita recarga
+            alert("¡Registro completado con éxito! Ahora puedes iniciar sesión.");
+            // Redirige al login
+            window.location.href = "../inicio_session/inicio_session.html";
+        }
+    </script>
+</body>
+</html>
