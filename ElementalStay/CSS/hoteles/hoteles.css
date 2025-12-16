@@ -1,0 +1,331 @@
+/*------------------------ ESTILOS DEL BODY ------------------------*/
+html, body {
+    height: 100%;
+    margin: 0;   /* Eliminar márgenes predeterminados */
+    padding: 0;  /* Eliminar padding */
+    width: 100%; /* Asegura que el body ocupe todo el ancho */
+}
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 80px; /* Altura del nav para compensar su posición fija */
+    
+}
+
+body::before {
+    content: ""; /* Elemento vacío para el fondo */
+    position: fixed; /* Cubre toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../img/hotelPrincipal.jpg'); /* Imagen de fondo */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2; /* Ajusta solo la opacidad de la imagen */
+    z-index: -1; /* Coloca detrás del contenido */
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* El contenedor ocupa todo el alto de la ventana */
+}
+
+/* 
+   El main crece de manera flexible, empujando el footer hacia abajo.
+   flex: 1  --> crece y se encoge
+   flex: 1 0 auto  --> para mayor compatibilidad
+*/
+main {
+    flex: 1 0 auto;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 10px;
+    gap: 10px;
+}
+
+.search-bar input, 
+.search-bar select, 
+.search-bar input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+
+    /* ---------------------------------------------- */
+    /*                 HOTELES Y MAPA                 */
+    /* ---------------------------------------------- */
+/* =================== Estilos Profesionales para Hoteles a Pantalla Completa =================== */
+/* ------------------------------------------
+   Contenedor principal
+------------------------------------------- */
+.container {
+    width: 70%;           /* Por defecto, ocupa el 70% del ancho de la ventana */
+    max-width: 1400px;    /* Ancho máximo opcional (para pantallas muy grandes) */
+    margin: 20px auto;    /* Centra vertical y horizontalmente */
+    padding: 0 20px;      /* Espacio interno en los laterales */
+}
+
+/* ------------------------------------------
+   Sección de resultados
+------------------------------------------- */
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: stretch; /* Hace que las tarjetas ocupen todo el ancho disponible */
+}
+
+/* ------------------------------------------
+   Tarjeta del hotel
+------------------------------------------- */
+.hotel-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas grandes */
+    gap: 20px;
+    width: 100%;
+    max-width: none;       /* Sin límite para la tarjeta */
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hotel-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen del hotel */
+.hotel-card__image {
+    position: relative;
+    overflow: hidden;
+}
+
+.hotel-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.hotel-card__image img:hover {
+    transform: scale(1.05);
+}
+
+/* Contenido de la tarjeta */
+.hotel-card__content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.hotel-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.hotel-card__name {
+    font-size: 25.6px;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.hotel-card__stars {
+    font-size: 19.2px;
+    color: #FFD700;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Información de la reserva */
+.booking-info {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.booking-info p {
+    margin: 5px 0;
+}
+
+/* Descripción */
+.hotel-card__description {
+    margin-bottom: 10px;
+    line-height: 1.4;
+    color: #555;
+    font-size: 16px;
+}
+
+/* Detalles adicionales */
+.hotel-card__details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 17.6px;
+    color: #666;
+}
+
+.hotel-card__details li {
+    margin-bottom: 8px;
+}
+
+.hotel-card__details li strong {
+    color: #000;
+}
+
+.incluye {
+    font-size: 14.4px;
+    color: #888;
+    margin-left: 5px;
+}
+
+/* Pie de la tarjeta */
+.hotel-card__footer {
+    margin-top: auto;
+    text-align: right;
+}
+
+.hotel-card__btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.hotel-card__btn:hover {
+    background-color: #0056b3;
+}
+
+/* ------------------------------------------
+   Responsive - Ajustes por breakpoints
+------------------------------------------- */
+
+/* 
+   Hasta 1200px, podemos ajustar el contenedor al 80% 
+   (por ejemplo) para aprovechar mejor el espacio.
+*/
+@media (max-width: 1200px) {
+    .container {
+        width: 80%;
+    }
+}
+
+/* 
+   Hasta 992px, cambiamos la distribución de la tarjeta
+   a 1 sola columna y aumentamos el ancho del contenedor.
+*/
+@media (max-width: 992px) {
+    .container {
+        width: 90%;
+    }
+    .hotel-card {
+        grid-template-columns: 1fr; /* Imagen arriba, contenido abajo */
+    }
+}
+
+/*
+   Hasta 768px, hacemos que el contenedor sea casi el 100% 
+   y reducimos padding si queremos.
+*/
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 0 15px;
+    }
+}
+
+/*
+   Hasta 576px, ocupamos el 100% y ajustamos tipografías 
+   si es necesario para pantallas muy pequeñas.
+*/
+@media (max-width: 576px) {
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+    
+    .hotel-card__name {
+        font-size: 22.4px;
+    }
+    
+    .hotel-card__description {
+        font-size: 15.2px;
+    }
+
+    .hotel-card__details li {
+        margin-bottom: 4px;
+    }
+
+    .hotel-card__btn {
+        width: 100%;
+        display: inline-block;
+        margin-top: 10px;
+    }
+}
+
+    /* -------------------------------------- */
+    /*                 PERFIL                 */
+    /* -------------------------------------- */
+    
+/* Estilo básico del menú desplegable */
+.profile-menu {
+    display: none;  /* Inicialmente oculto */
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.profile-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.profile-menu a:hover {
+    background-color: #ddd;
+}
+
+/* Estilo para el "Cerrar sesión" */
+.logout {
+    background-color: rgb(255, 148, 148);
+}
+
+/* Estilo para el enlace de perfil */
+.profile a {
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+/* Cuando el menú tiene la clase 'show', se muestra */
+.profile-menu.show {
+    display: block;
+}
+

@@ -1,0 +1,49 @@
+<!-- ---------------------- Página "Sobre Elemental Stay" ---------------------- -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Elemental Stay</title>
+    <link rel="stylesheet" href="../CSS/footer/AcercaDe.css">
+</head>
+<body>
+    <!-- CONTENIDO PRINCIPAL SOBRE LA INFORMACIÓN ACERDA DE  -->
+    <main>
+        <section class="about-container">
+            <div class="about-header">
+                <h1>Sobre Elemental Stay</h1>
+                <div class="logo-container">
+                    <!-- Logo a la derecha -->
+                    <img src="../img/logo.png" alt="Logo de Elemental Stay" class="logo">
+                </div>
+            </div>
+
+            <div class="about-content">
+                <p>
+                    Elemental Stay no es simplemente una compañía de hoteles cualquiera, es el nacimiento de una idea de mostrar al mundo los magníficos hoteles con sus paisajes y entornos de España.
+                </p>
+                <p>
+                    Dónde el usuario puede buscar la mejor opción para disfrutar de sus vacaciones. ¿En la playa? ¿Cerca de las mejores playas y costas? ¿En la montaña? ¿Y gozar de las mejores vistas y la naturaleza? ¿O estar situado en el centro de las ciudades más visitadas de España? 
+                </p>
+                <p>
+                    Todo esto lo dejamos a máxima disposición para que no dudes en escoger cuál va a ser tu próximo destino. En Elemental Stay creemos en ofrecer experiencias únicas que se ajusten a tus necesidades. Ya sea una escapada relajante, una aventura en la naturaleza o una inmersión cultural en la ciudad, tenemos algo para todos los gustos.
+                </p>
+                <p>
+                    Nuestra misión es facilitarte el acceso a la mejor experiencia de viaje, garantizando confort, calidad y una excelente relación calidad-precio en todos nuestros alojamientos. No importa cuál sea tu estilo de viaje, tenemos opciones de alojamiento que se adaptan a ti.
+                </p>
+                <p>
+                    En Elemental Stay, entendemos que cada viajero tiene diferentes expectativas y preferencias. Por eso, ofrecemos una variedad de opciones que van desde elegantes hoteles urbanos hasta alojamientos tranquilos y exclusivos en la naturaleza. Lo que hace que nuestros servicios sean excepcionales es la atención al detalle y nuestra dedicación a asegurarnos de que tu estancia sea memorable.
+                </p>
+                <p>
+                    Únete a nosotros y descubre cómo podemos hacer que tu próxima aventura en España sea inolvidable. Elemental Stay está aquí para convertir tus sueños de viaje en una realidad.
+                </p>
+                <!-- Botón para volver -->
+                <div class="back-button-container">
+                    <a href="../index.php" class="back-button">Regresar</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones</title>
+    <link rel="stylesheet" href="../CSS/footer/TerminosyCondiciones.css">
+</head>
+<body>
+    <main>
+        <section class="terms-container">
+            <div class="terms-header">
+                <h1>Términos y Condiciones</h1>
+            </div>
+            <div class="terms-content">
+                <h2>Introducción</h2>
+                <p>Al acceder y utilizar el sitio web de Elemental Stay, aceptas cumplir con los siguientes términos y condiciones. Si no estás de acuerdo con estos términos, por favor, no utilices nuestros servicios.</p>
+
+                <h2>Uso del Sitio</h2>
+                <p>El contenido de este sitio web está destinado exclusivamente para uso personal y no comercial. Cualquier uso no autorizado, como la copia, distribución o reproducción del contenido de este sitio está prohibido.</p>
+
+                <h2>Reservas y Pagos</h2>
+                <p>Al realizar una reserva en Elemental Stay, aceptas proporcionar información precisa y completa. Todas las transacciones de pago son seguras y se realizan a través de proveedores de pago confiables.</p>
+
+                <h2>Responsabilidades</h2>
+                <p>Elemental Stay no se hace responsable por daños o pérdidas derivados de la utilización de los servicios proporcionados. El usuario es responsable de cumplir con las políticas de los proveedores de alojamiento.</p>
+
+                <h2>Modificaciones</h2>
+                <p>Elemental Stay se reserva el derecho de modificar estos términos y condiciones en cualquier momento sin previo aviso. Es importante que revises periódicamente estos términos para estar al tanto de cualquier cambio.</p>
+                
+                <!-- Botón para volver -->
+                <div class="back-button-container">
+                    <a href="../index.php" class="back-button">Regresar</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

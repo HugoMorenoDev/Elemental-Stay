@@ -1,0 +1,234 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ElementalStay - Tu estancia nuestra referencia</title>
+<link rel="stylesheet" href="./CSS/index/index.css">
+<link rel="stylesheet" href="./CSS/index/carrusel.css">
+<link rel="stylesheet" href="./CSS/footer/footer.css">
+<link rel="stylesheet" href="./CSS/header/header.css">
+<link rel="shortcut icon" href="./img/logo.png"/>
+<link rel="stylesheet" href="./CSS/index/errorfiltros.css">
+</head>
+<body>
+    <!------------------------ MENÚ DE LINKS ----------------------->
+    <nav>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo">
+            <h1 class="logo-title">ELEMENTAL STAY</h1>
+        </div>
+
+        <!-- ------ MENU HAMBURGUESA ------ -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <ul>
+            <li><a href="index.php" id="boton-superior"><b>INICIO</b></a></li>
+            <li><a href="./mvc/index.php?controlador=ReservasMisReservas&accion=listar" class="boton-superior"><b>RESERVAS</b></a></li>            
+            <li><a href="./mvc/index.php?controlador=Hoteles&accion=listarHotelesSinFiltros" id="boton-superior"><b>HOTELES</b></a></li>
+            <li><a href="contactos/contactos.php" id="boton-superior"><b>CONTACTO</b></a></li>
+    
+
+            <!-- Aquí verificamos si la sesión está activa -->
+            <?php if (isset($_SESSION['usuario'])): ?>
+                <!-- Mostrar 'PERFIL' si la sesión está activa -->
+                <li class="profile">
+                    <a href="javascript:void(0);" onclick="toggleProfileMenu(event)" id="profileButton"><b>PERFIL</b></a>
+                    <!-- Menú desplegable de opciones de perfil -->
+                    <div class="profile-menu" id="profileMenu">
+                        <a href="./perfil/perfil.php">Ver Perfil</a>
+                        <a href="./inicio_session/logout.php" class="logout">Cerrar Sesión</a>
+                    </div>
+                </li>
+            <?php else: ?>
+                <!-- Si no hay sesión activa, mostrar el botón de "Iniciar sesión" -->
+                <li><a href="../ElementalStay/inicio_session/inicio_session.php" id="boton-superior"><b>INICIAR SESIÓN</b></a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+
+    <!-- SCRIPT DEL DESPLEGABLE DEL PERIL -->
+    <script>
+        // Función para alternar la visibilidad del menú de perfil
+        function toggleProfileMenu(event) {
+            event.stopPropagation();  // Evita que el clic se propague a otras partes de la página
+            var menu = document.getElementById('profileMenu');
+            menu.classList.toggle('show');  // Alterna la clase 'show' para mostrar/ocultar el menú
+        }
+
+        // Cerrar el menú si se hace clic fuera de él
+        window.onclick = function(event) {
+            // Verificamos si el clic NO fue sobre el enlace 'PERFIL' ni el menú desplegable
+            if (!event.target.matches('#profileButton') && !event.target.matches('.profile-menu') && !event.target.closest('.profile')) {
+                var dropdowns = document.getElementsByClassName('profile-menu');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');  // Oculta el menú
+                    }
+                }
+            }
+        }
+    </script>
+
+
+    <!-- Mensaje de error de fechas -->
+    <?php if (isset($_GET['error']) && $_GET['error'] === 'fechas'): ?>
+      <div class="alert" id="errorDateMsg">
+        <!-- Icono de exclamación -->
+        <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M18 10A8 8 0 112 10a8 8 0 0116 0zm-8-.75a.75.75 0 00-.75.75v3a.75.75 0 001.5 0v-3A.75.75 0 0010 9.25zm0 6a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd"/>
+        </svg>
+        <span>La fecha de entrada debe ser anterior a la fecha de salida.</span>
+        <button class="close-btn" onclick="document.getElementById('errorDateMsg').remove();" aria-label="Cerrar alerta">&times;</button>
+      </div>
+    <?php endif; ?>
+
+    <!-- -------------------------------------- BUSCADOR DE HOTELES --------------------------- -->
+    <section class="search-wrapper">
+      <div class="search-card">
+        <!-- Logo / imagen -->
+        <div class="search-card__logo">
+          <img src="./img/logo.png" alt="Logo del hotel">
+        </div>
+
+        <!-- Filtros -->
+        <div class="search-card__filters">
+          <form id="busquedaForm" method="GET" action="./mvc/index.php?controlador=Hoteles&accion=listarHoteles">
+            <input type="hidden" name="controlador" value="Hoteles">
+            <input type="hidden" name="accion" value="listarHoteles">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="destino">¿Adónde vas?</label>
+                <select name="destino" id="destino">
+                  <option value="">Seleccione una ciudad</option>
+                  <option value="Valencia">Valencia</option>
+                  <option value="Madrid">Madrid</option>
+                  <option value="Cantabria">Cantabria</option>
+                </select>
+              </div>
+
+              <br>
+
+              <div class="form-group">
+                <label for="entrada">Fecha de entrada</label>
+                <input type="date" id="entrada" name="entrada" required>
+              </div>
+
+              <br>
+
+              <div class="form-group">
+                <label for="salida">Fecha de salida</label>
+                <input type="date" id="salida" name="salida" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group small">
+                <label for="adultos">Adultos</label>
+                <input type="number" id="adultos" name="adultos" value="1" min="1">
+              </div>
+
+              <br>
+
+              <div class="form-group small">
+                <label for="ninos">Niños</label>
+                <input type="number" id="ninos" name="ninos" value="0" min="0">
+              </div>
+
+              <br>
+
+              <div class="form-group half">
+                <label for="precio_min">Precio Mínimo (€)</label>
+                <input type="number" id="precio_min" name="precio_min" step="0.01" min="0" required>
+              </div>
+
+              <br>
+
+              <div class="form-group half">
+                <label for="precio_max">Precio Máximo (€)</label>
+                <input type="number" id="precio_max" name="precio_max" step="0.01" min="0" required>
+              </div>
+            </div>
+
+            <div class="form-row form-row--actions">
+              <button type="submit" class="btn-confirm">Confirmar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------- CARRUSELES ------------------------------------------- -->
+    <!-- --------------------- CARRUSEL IMÁGENES HOTELES --------------------- -->
+    <!-- Título general -->
+    <h2 class="carousel-general-title">Galería de Imágenes de Hoteles</h2>
+
+    <!-- Contenedor principal de tarjetas -->
+    <div class="gallery-wrapper">
+      <!-- Carrusel 1: Ciudad -->
+      <section id="carousel1" class="carousel-container">
+        <a href="./mvc/index.php?controlador=Hoteles&accion=listarHotelesSinFiltros">
+          <img class="carousel-image" src="" alt="Carrusel Ciudad">
+        </a>
+        <div class="carousel-caption">
+          <h3>Hoteles Ciudad</h3>
+          <p>España - Madrid</p>
+        </div>
+      </section>
+
+      <!-- Carrusel 2: Playa -->
+      <section id="carousel2" class="carousel-container">
+        <a href="./mvc/index.php?controlador=Hoteles&accion=listarHotelesSinFiltros">
+          <img class="carousel-image" src="" alt="Carrusel Playa">
+        </a>  
+        <div class="carousel-caption">
+          <h3>Hoteles Playa</h3>
+          <p>España - Valencia</p>
+        </div>
+      </section>
+
+      <!-- Carrusel 3: Montaña -->
+      <section id="carousel3" class="carousel-container">
+        <a href="./mvc/index.php?controlador=Hoteles&accion=listarHotelesSinFiltros">
+          <img class="carousel-image" src="" alt="Carrusel Montaña">
+        </a>
+        <div class="carousel-caption">
+          <h3>Hoteles Montaña</h3>
+          <p>España - Cantabria</p>
+        </div>
+      </section>
+    </div>
+
+    <br>
+
+    <!-- ---------------------- CARRUSEL HABITACIONES ---------------------- -->
+    <h2 class="carousel-general-title">Galería de Habitaciones</h2>
+    <section id="room-carousel" class="room-carousel-container">
+      <button class="arrow prev" id="room-prev">❮</button>
+      <div class="room-carousel-wrapper" id="roomWrapper">
+        <!-- Las habitaciones se inyectan dinámicamente en JavaScript -->
+      </div>
+      <button class="arrow next" id="room-next">❯</button>
+    </section>
+    <!-- ------------------------------------------- FIN DE CARRUSELES ------------------------------------------- -->
+    
+    <!-- --------------------- ENLACE FOOTER -------------------  -->
+    <?php include './footer/footer.php'; ?>
+    
+
+    <script src="JS/Carrusel.js"></script>
+    <script src="JS/Header.js"></script>
+    <script src="JS/errorfiltros.js"></script> <!-- Validación de fechas en el cliente con alerta estilizada -->
+</body>
+</html>

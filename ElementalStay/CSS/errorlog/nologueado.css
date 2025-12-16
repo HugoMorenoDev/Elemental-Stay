@@ -1,0 +1,48 @@
+/* Estilos para mostrar error */
+body {
+    margin: 0; padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex; justify-content: center; align-items: center;
+    height: 100vh;
+}
+
+.error-container {
+    width: 90%; max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 10px; background: #fff;
+    overflow: hidden;
+}
+
+.error-box {
+    padding: 40px 30px; text-align: center;
+}
+
+.error-box h2 {
+    font-size: 1.8rem; margin-bottom: 15px;
+    color: #333; font-weight: bold;
+}
+
+.error-box p {
+    font-size: 1rem; color: #666;
+    margin-bottom: 25px;
+}
+
+.btn-action {
+    display: inline-block;
+    background-color: #000; color: #fff;
+    text-decoration: none; border-radius: 6px;
+    padding: 12px 20px; font-size: 1rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-action:hover {
+    background-color: orange;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 600px) {
+    .error-box { padding: 20px; }
+    .error-box h2 { font-size: 1.5rem; }
+    .error-box p  { font-size: 0.9rem; }
+}

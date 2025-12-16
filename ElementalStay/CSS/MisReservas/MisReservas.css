@@ -1,0 +1,191 @@
+/* ---------------------- BODY Y BACKGROUND ---------------------- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+  
+body {
+    padding-top: 80px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('/ElementalStayMayo/ElementalStay/img/hotelPrincipal.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.wrapper {
+    width: 80%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* ---------------------- TARJETAS DE RESERVA ---------------------- */
+.reservas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* ---------------------- TARJETAS DE RESERVA ---------------------- */
+.reserva-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px; /* Ajustamos un poco el espacio entre los elementos */
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 960px; /* Aumentamos un poco el tamaño del contenedor */
+  margin: 0 auto;
+}
+
+.reserva-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.reserva-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.reserva-card img:hover {
+  transform: scale(1.05);
+}
+
+.reserva-details {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Mantener el tamaño original del padding */
+}
+
+.reserva-details h2 {
+  font-size: 1.8rem; /* Volver al tamaño original */
+  margin: 0 0 10px;
+  color: #007bff;
+}
+
+.reserva-info p {
+  margin: 5px 0;
+  font-size: 1rem; /* Mantener el tamaño original de los textos */
+  color: #555;
+}
+
+.reserva-info p span {
+  font-weight: bold;
+  color: #333;
+}
+
+.reserva-info p.descripcion {
+  font-size: 1rem; /* Asegurarnos de que la descripción tenga el mismo tamaño que los otros textos */
+  color: #666;
+  line-height: 1.6;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+  background-color: transparent; /* Eliminar el fondo */
+}
+
+.reserva-footer {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fecha {
+  font-size: 0.95rem;
+  color: #777;
+  background-color: #f9f9f9; /* Fondo suave */
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 20px;  /* Ajuste de padding para que ambos botones sean del mismo tamaño */
+  background-color: #007bff;
+  color: #fff;
+  border: 2px solid #007bff;  /* Borde del botón */
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;  /* Para que el texto sea un poco más visible */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  display: inline-block;
+  text-decoration: none;  /* Elimina el subrayado en los botones */
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;  /* Cambio de color del borde al hacer hover */
+}
+
+.btn-cancel {
+  background-color: #dc3545;
+  color: #fff;
+  border: 2px solid #dc3545;  /* Borde del botón de cancelación */
+}
+
+.btn-cancel:hover {
+  background-color: #c82333;
+  border-color: #c82333;  /* Cambio de color del borde al hacer hover */
+}
+
+.btn-details {
+  background-color: #007bff;
+  color: white;
+  border: 2px solid #007bff;  /* Borde del botón de detalles */
+}
+
+.btn-details:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;  /* Cambio de color del borde al hacer hover */
+}
+
+
+
+  /* ---------------------- RESPONSIVE ---------------------- */
+  @media (max-width: 768px) {
+  .reserva-card {
+      grid-template-columns: 1fr;
+      width: 95%;
+}
+  .btn-group {
+      flex-direction: column;
+      align-items: stretch;
+}
+}

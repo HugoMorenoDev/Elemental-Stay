@@ -1,0 +1,227 @@
+/* ----------------------------- GALERÍA: GRID DE TARJETAS ----------------------------- */
+.carousel-general-title {
+  text-align: center;
+  font-size: clamp(24px, 4vw, 36px);
+  margin: 40px 0;
+  color: #333;
+}
+
+.gallery-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1500px;
+  margin: 40px auto;
+}
+
+/* Tarjeta base (antes carousel-container) */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background: #000;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover */
+.carousel-container:hover {
+  transform: scale(1.02);
+}
+
+/* Imagen de la tarjeta */
+.carousel-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.carousel-container:hover .carousel-image {
+  transform: scale(1.05);
+}
+
+/* Superposición inferior con gradiente */
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: #fff;
+}
+
+.carousel-caption h3 {
+  margin: 0;
+  font-size: 20.8px;
+  font-weight: 600;
+}
+
+.carousel-caption p {
+  margin: 4px 0 0;
+  font-size: 15.2px; 
+  font-weight: 300;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-container {
+    max-width: 300px;
+  }
+  .carousel-caption h3 {
+    font-size: 17.6px;
+  }
+  .carousel-caption p {
+    font-size: 13.6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    max-width: 90%;
+  }
+  .carousel-caption h3 {
+    font-size: 16px;
+  }
+  .carousel-caption p {
+    font-size: 12.8px;
+  }
+}
+
+/* --------------------- CSS CARRUSEL HABITACIONES --------------------- */
+.room-carousel-container {
+  position: relative;
+  max-width: 1400px;
+  margin: 50px auto;
+  padding: 0 20px;
+  /* No alteramos display:flex para que sigan funcionando las flechas */
+}
+
+/* Wrapper deslizable */
+.room-carousel-wrapper {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;            /* Hacemos scroll en vez de ocultar overflow */
+  scroll-behavior: smooth;
+  padding-bottom: 10px;        /* Un poco de espacio interno */
+}
+
+/* Ocultar barras de scroll en WebKit y Firefox */
+.room-carousel-wrapper::-webkit-scrollbar { display: none; }
+.room-carousel-wrapper { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Tarjeta de habitación */
+.room-card {
+  flex: 0 0 auto;
+  width: 360px;
+  height: 240px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  background: #111;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Imagen */
+.room-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.9;
+}
+.room-card:hover img {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Overlay suave al hover */
+.room-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.room-card:hover::before {
+  opacity: 1;
+}
+
+/* Flechas mejoradas */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;     /* Sin fondo por defecto */
+  border: none;
+  color: white;   /* Flechas más oscuras */
+  font-size: 38.4px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.arrow:hover {
+  background: rgba(255, 255, 255, 0.6);  
+  color: rgba(0, 0, 0, 0.9);            
+}
+
+.prev { 
+  margin-right: 12px;
+  left: 20px; 
+}
+.next { 
+  margin-left: 12px; 
+  right: 20px;
+}
+
+/* Responsive: Tablets */
+@media (max-width: 1024px) {
+  .room-card { width: 300px; height: 200px; }
+  .arrow { font-size: 32px; width: 40px; height: 40px; }
+}
+
+/* Responsive: Móviles */
+@media (max-width: 600px) {
+  .room-carousel-container {
+    padding: 0;
+  }
+  .room-carousel-wrapper {
+    gap: 16px;
+    padding: 0 10px 10px;
+  }
+  .room-card { width: 240px; height: 160px; }
+  .arrow {
+    position: fixed;
+    bottom: 20px;
+    transform: none;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 28.8px;
+    width: 36px;
+    height: 36px;
+  }
+  .prev { 
+    left: 20px; 
+  }
+  .next { 
+    right: 20px; 
+  }
+}

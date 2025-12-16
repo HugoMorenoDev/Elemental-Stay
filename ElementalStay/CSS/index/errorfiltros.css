@@ -1,0 +1,33 @@
+.alert {
+    position: relative;
+    max-width: 600px;
+    margin: 16px auto; 
+    padding: 16px 24px; 
+    display: flex;
+    align-items: center;
+    background-color: #fef3f2;
+    border: 1px solid #f5c6cb;
+    border-radius: 6px; 
+    color: #721c24;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.alert svg {
+    flex-shrink: 0;
+    width: 20px; 
+    height: 20px; 
+    margin-right: 12px; 
+}
+
+.alert .close-btn {
+    position: absolute;
+    top: 8px; 
+    right: 12px; 
+    background: transparent;
+    border: none;
+    font-size: 20px; 
+    line-height: 1;
+    color: #721c24;
+    cursor: pointer;
+}
