@@ -4,44 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Elemental Stay</title>
+    
+    <link rel="stylesheet" href="../CSS/header/header.css">
     <link rel="stylesheet" href="../CSS/footer/footer.css">
     <link rel="stylesheet" href="../CSS/contactos/contactos.css"> 
-    <link rel="stylesheet" href="../CSS/header/header.css">
-    <link rel="shortcut icon" href="../img/logo.png"/>
+    
+    <link rel="shortcut icon" href="../imagenes/img/logo.png"/>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img src="../img/logo.png" alt="Logo">
-            <h1 class="logo-title">ELEMENTAL STAY</h1>
-        </div>
-
-        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-        <label for="menu-toggle" class="menu-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-        
-        <ul>
-            <li><a href="../index.html" id="boton-superior"><b>INICIO</b></a></li>
-            <li><a href="../reservas/reservas.html" class="boton-superior"><b>RESERVAS</b></a></li>            
-            <li><a href="../hoteles/hoteles.html" id="boton-superior"><b>HOTELES</b></a></li>
-            <li><a href="contactos.html" id="boton-superior"><b>CONTACTO</b></a></li>
-            
-            <li class="profile" id="profileLi" style="display: none;">
-                <a href="javascript:void(0);" onclick="toggleProfileMenu(event)" id="profileButton"><b>PERFIL</b></a>
-                <div class="profile-menu" id="profileMenu">
-                    <a href="../perfil/perfil.html">Ver Perfil</a>
-                    <a href="#" onclick="cerrarSesionSimulado()" class="logout">Cerrar Sesión</a>
-                </div>
-            </li>
-
-            <li id="loginLi">
-                <a href="../inicio_session/inicio_session.html" id="boton-superior"><b>INICIAR SESIÓN</b></a>
-            </li>
-        </ul>
-    </nav>
 
     <script>
         function toggleProfileMenu(event) {
@@ -57,7 +27,7 @@
         }
 
         window.onclick = function(event) {
-            if (!event.target.matches('#profileButton') && !event.target.matches('.profile-menu') && !event.target.closest('.profile')) {
+            if (!event.target.matches('#profileButton') && !event.target.closest('.profile')) {
                 var dropdowns = document.getElementsByClassName('profile-menu');
                 for (var i = 0; i < dropdowns.length; i++) {
                     var openDropdown = dropdowns[i];
@@ -69,70 +39,78 @@
         };
     </script>
 
+    <main>
+        <div class="contact-wrapper">
+            
+            <div class="contact-info">
+                <h2>Información de Contacto</h2>
+                <p class="info-text">Estamos aquí para ayudarte. Si tienes dudas sobre tu reserva o nuestros servicios, no dudes en contactarnos.</p>
+                
+                <div class="info-item">
+                    <span class="icon">📍</span>
+                    <div>
+                        <strong>Nuestra Oficina</strong>
+                        <p>Aquí va la dirección</p>
+                    </div>
+                </div>
 
-    <main class="contact-container">
-        <h1>Contáctanos</h1>
-        <p>¿Tienes algún comentario, duda o problema? Completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible.</p>
+                <div class="info-item">
+                    <span class="icon">📞</span>
+                    <div>
+                        <strong>Teléfono</strong>
+                        <p>+34 600 123 456</p>
+                    </div>
+                </div>
 
-        <form class="contact-form" onsubmit="simularEnvio(event)">
-            <div class="form-group">
-                <label for="name">Nombre</label>
-                <input type="text" id="name" name="name" placeholder="Escribe tu nombre" required>
+                <div class="info-item">
+                    <span class="icon">✉️</span>
+                    <div>
+                        <strong>Email</strong>
+                        <p>contacto@elementalstay.com</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+            <div class="contact-form-container">
+                <h2>Envíanos un mensaje</h2>
+                
+                <form onsubmit="simularEnvio(event)">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Correo Electrónico</label>
+                        <input type="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Asunto</label>
+                        <input type="text" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mensaje</label>
+                        <textarea name="message" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
             </div>
 
-            <div class="form-group">
-                <label for="message">Mensaje</label>
-                <textarea id="message" name="message" placeholder="Escribe tu comentario o problema aquí..." rows="5" required></textarea>
-            </div>
-
-            <button type="submit" class="btn-submit">Enviar</button>
-        </form>
+        </div>
     </main>
 
     <script>
         function simularEnvio(event) {
-            event.preventDefault(); // Evita que la página se recargue
-            alert("¡Mensaje enviado correctamente! (Simulación)");
-            // Opcional: Redirigir al inicio
+            event.preventDefault(); 
+            alert("¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.");
             window.location.href = "../index.html";
         }
     </script>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>Sobre Nosotros</h4>
-                <p>Elemental Stay es tu plataforma para encontrar los mejores alojamientos al mejor precio, con opciones personalizadas para cada tipo de viajero.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Enlaces Útiles</h4>
-                    <ul>
-                        <li><a href="../index.html">Inicio</a></li>
-                        <li><a href="../footer/AcercaDe.html">Acerca de</a></li>
-                        <li><a href="contactos.html">Contacto</a></li>
-                        <li><a href="../footer/TerminosyCondiciones.html">Términos y Condiciones</a></li>
-                    </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Síguenos</h4>
-                <div class="social-icons">
-                    <a href="#"><img src="../icon-facebook.svg" alt="Facebook"></a>
-                    <a href="#"><img src="../icon-twitter.svg" alt="Twitter"></a>
-                    <a href="#"><img src="../icon-instagram.svg" alt="Instagram"></a>
-                    <a href="#"><img src="../icon-youtube.svg" alt="YouTube"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Elemental Stay. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
     <script src="../JS/Header.js"></script>
+    <script src="../JS/Footer.js"></script>
 </body>
 </html>

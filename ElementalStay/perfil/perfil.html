@@ -7,39 +7,10 @@
     <link rel="stylesheet" href="../CSS/perfil/perfil.css">
     <link rel="stylesheet" href="../CSS/header/header.css">
     <link rel="stylesheet" href="../CSS/footer/footer.css">
-    <link rel="shortcut icon" href="../img/logo.png"/>
+    <link rel="shortcut icon" href="../imagenes/img/logo.png"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img src="../img/logo.png" alt="Logo">
-            <h1 class="logo-title">ELEMENTAL STAY</h1>
-        </div>
-
-        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-        <label for="menu-toggle" class="menu-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-
-        <ul>
-            <li><a href="../index.html" id="boton-superior"><b>INICIO</b></a></li>
-            <li><a href="../reservas/reservas.html" class="boton-superior"><b>RESERVAS</b></a></li>            
-            <li><a href="../hoteles/hoteles.html" id="boton-superior"><b>HOTELES</b></a></li>
-            <li><a href="../contactos/contactos.html" id="boton-superior"><b>CONTACTO</b></a></li>
-
-            <li class="profile">
-                <a href="javascript:void(0);" onclick="toggleProfileMenu(event)" id="profileButton"><b>PERFIL</b></a>
-                <div class="profile-menu" id="profileMenu">
-                    <a href="perfil.html">Ver Perfil</a>
-                    <a href="../index.html" onclick="alert('Cerrando sesión...')" class="logout">Cerrar Sesión</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-
     <script>
         function toggleProfileMenu(event) {
             event.stopPropagation();
@@ -106,35 +77,6 @@
             alert("¡Datos actualizados correctamente! (Modo Demo)");
         }
     </script>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>Sobre Nosotros</h4>
-                <p>Elemental Stay es tu plataforma para encontrar los mejores alojamientos al mejor precio.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Enlaces Útiles</h4>
-                <ul>
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="../footer/AcercaDe.html">Acerca de</a></li>
-                    <li><a href="../contactos/contactos.html">Contacto</a></li>
-                    <li><a href="../footer/TerminosyCondiciones.html">Términos y Condiciones</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Síguenos</h4>
-                <div class="social-icons">
-                    <a href="#"><img src="../icon-facebook.svg" alt="Facebook"></a>
-                    <a href="#"><img src="../icon-twitter.svg" alt="Twitter"></a>
-                    <a href="#"><img src="../icon-instagram.svg" alt="Instagram"></a>
-                    <a href="#"><img src="../icon-youtube.svg" alt="YouTube"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Elemental Stay. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <script src="../JS/Footer.js"></script>
 </body>
 </html>

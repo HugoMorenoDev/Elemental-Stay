@@ -1,176 +1,210 @@
-/* ------------------------------ CSS NAV PRINCIPAL MENU PRINCIPAL -------------------- */
+/* =========================================
+   1. CONFIGURACIÓN BASE DEL NAV
+   ========================================= */
 nav {
-    /* background: rgba(0, 0, 0, 0.9);  */
+    background-color: white; 
     color: black; 
     display: flex;
-    justify-content: space-around; /* Distribuye mejor los elementos */    align-items: center;
-    padding: 10px 20px; 
-    position: fixed; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 30px; 
+    position: fixed; /* Barra fija en la parte superior */
     top: 0;
     left: 0;
-    width: 100%; 
-    height: 70px;
-    z-index: 1000; 
-    margin-bottom: 20px; 
-    transition: background 0.3s ease; 
-    
+    width: 100%;
+    height: 80px; 
+    z-index: 9999; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease;
+    font-family: sans-serif; 
 }
 
+/* Estado al hacer scroll */
 nav.scrolled {
-    background: black; 
-    color: #999999;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    height: 70px; 
+    background: rgba(255, 255, 255, 0.98);
 }
 
+/* =========================================
+   2. LOGOTIPO
+   ========================================= */
 .logo {
-    display: flex; /* Flexbox para alinear elementos en línea */
-    align-items: center; /* Alinea verticalmente los elementos */
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 15px; 
+    text-decoration: none;
+    flex-shrink: 0; 
 }
 
 .logo img {
-    margin-top: 8px;
-    height: 80px; /* Ajusta el tamaño del logo */
-    width: 80px;
+    height: 60px; 
+    width: auto;
+    object-fit: contain;
 }
 
 .logo-title {
-    margin-left: 15px; /* Espaciado entre la imagen y el título */
-    font-size: 24px; /* Tamaño del texto del título */
-    color: inherit; /* Hereda el color actual del nav */
-    font-weight: bold; /* Estilo de texto en negrita */
+    font-size: 24px; 
+    color: inherit;
+    font-weight: bold; 
+    text-transform: uppercase;
+    margin: 0;
+    white-space: nowrap; 
 }
 
+/* =========================================
+   3. ENLACES DE MENÚ (DESKTOP)
+   ========================================= */
 nav ul {
     display: flex;
     list-style: none;
-    margin-right: 50px; /* Separa los enlaces del borde derecho */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 15px; 
 }
 
-
 nav ul li {
-    margin: 0 15px;
+    position: relative;
+    flex-shrink: 0; 
 }
 
 nav ul li a {
-    color: inherit; /* Hereda el color actual del nav */
+    color: inherit; 
     text-decoration: none;
-    padding: 5px 10px;
-    transition: background 0.3s ease, color 0.3s ease; /* Suaviza cambios de color y fondo */
+    font-size: 16px; 
+    font-weight: bold; 
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    white-space: nowrap; /* Evita saltos de línea en "Iniciar Sesión" */
 }
 
+/* Efecto Hover */
 nav ul li a:hover {
     color: white;
     background: orange;
-    border-radius: 4px;
-    text-decoration: none;
-    transform: translateY(-4px);
+    transform: translateY(-2px);
 }
 
-/* Estilo básico del menú desplegable */
+/* Botón de iniciar sesión (Borde naranja) */
+#loginLi a {
+    border: 2px solid orange;
+    color: orange;
+}
+
+#loginLi a:hover {
+    background-color: orange;
+    color: white;
+}
+
+/* =========================================
+   4. MENÚ DESPLEGABLE (PERFIL)
+   ========================================= */
 .profile-menu {
-    display: none;  /* Inicialmente oculto */
+    display: none;
     position: absolute;
+    top: 120%; 
+    right: 0;
     background-color: white;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    min-width: 160px;
-    z-index: 1;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    z-index: 10000;
+}
+
+.profile-menu.show {
+    display: block;
 }
 
 .profile-menu a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
     display: block;
+    padding: 12px 16px;
+    color: black;
+    border-bottom: 1px solid #eee;
+    text-transform: none; 
+    font-weight: normal; 
 }
 
 .profile-menu a:hover {
     background-color: #ddd;
 }
 
-/* Estilo para el "Cerrar sesión" */
 .logout {
-    background-color: rgb(255, 148, 148);
+    background-color: #ffecec; 
 }
 
-/* Estilo para el enlace de perfil */
-.profile a {
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 16px;
-}
+/* =========================================
+   5. RESPONSIVE (MÓVIL / TABLET / PORTÁTIL)
+   ========================================= */
+.menu-toggle { display: none; }
+.menu-icon { display: none; } 
 
-/* Cuando el menú tiene la clase 'show', se muestra */
-.profile-menu.show {
-    display: block;
-}
+/* Activamos menú hamburguesa en pantallas menores a 1150px para evitar roturas */
+@media (max-width: 1150px) {
+    
+    /* Icono Hamburguesa */
+    .menu-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 10001; 
+    }
 
-/* --------------------------- APARTADO MENU HAMBURGUESA --------------------------- */
-/* Oculta el checkbox de menú hamburguesa */
-.menu-toggle {
-    display: none;
-}
+    .menu-icon span {
+        width: 30px;
+        height: 3px;
+        background-color: black;
+        transition: all 0.3s ease;
+    }
 
-/* Icono hamburguesa */
-.menu-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.4s ease-in-out;
-}
+    /* Animación del icono al abrir */
+    .menu-toggle:checked + .menu-icon span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .menu-toggle:checked + .menu-icon span:nth-child(2) { opacity: 0; }
+    .menu-toggle:checked + .menu-icon span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
-.menu-icon span {
-    height: 3px;
-    width: 25px;
-    background: currentColor;
-    margin: 4px 0;
-    border-radius: 2px;
-    transition: all 0.4s ease;
-    transform-origin: center;
-}
+    /* Menú Lateral Desplegable */
+    nav ul {
+        position: fixed;
+        top: 80px; 
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px); 
+        background: rgba(0, 0, 0, 0.95); 
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; 
+        padding-top: 50px;
+        gap: 30px;
+        transform: translateX(100%); /* Oculto por defecto */
+        transition: transform 0.3s ease-in-out;
+    }
 
-/* ------------------ Responsive: Menú Hamburguesa ------------- */
-@media (max-width: 768px) {
-  /* Mostrar icono hamburguesa */
-  .menu-icon { display: flex; }
+    /* Mostrar menú al activar el checkbox */
+    .menu-toggle:checked ~ ul {
+        transform: translateX(0);
+    }
 
-  /* Animación de las barras al activar el menú */
-  .menu-toggle:checked + .menu-icon span:nth-child(1) {
-    transform: rotate(40deg) translate(5px, 5px);
-  }
+    nav ul li a {
+        color: white; 
+        font-size: 1.2rem; 
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+    
+    /* Reset estilo botón login en móvil */
+    #loginLi a {
+        border: none;
+        color: white;
+    }
 
-  .menu-toggle:checked + .menu-icon span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle:checked + .menu-icon span:nth-child(3) {
-    transform: rotate(-40deg) translate(6px, -6px);
-  }
-
-  /* Ocultar lista y convertir en overlay */
-  nav ul {
-    position: fixed;
-    top: 70px; left: 0;
-    width: 100%; height: calc(100% - 70px);
-    background: black;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    margin: 0;
-    padding: 0;
-    color: white;
-  }
-
-  /* Al marcar el checkbox, mostrar menú */
-  .menu-toggle:checked + .menu-icon + ul {
-    transform: translateX(0);
-  }
-
-  nav ul li {
-    margin: 0;
-  }
+    nav ul li a:hover {
+        color: orange;
+        background: transparent;
+    }
 }

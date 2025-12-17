@@ -1,106 +1,145 @@
-/* ----- Footer General ----- */
+/* =========================================
+   CONFIGURACIÓN GENERAL
+   ========================================= */
 footer {
-  background-color: #111;      /* Fondo oscuro */
-  color: #fff;                 /* Texto blanco */
-  padding: 50px 20px;          /* Espaciado interno */
-  font-family: Arial, sans-serif;
-  margin-top: auto;            /* Esto asegura que el footer se pegue al final */
-  text-align: center;
-  width: 100%;
-  border-top: 3px solid #f1c40f; /* Línea dorada arriba */
+    background-color: #222;
+    color: #fff;
+    padding: 60px 0 20px;
+    font-family: sans-serif; 
+    margin-top: auto;
+    border-top: 5px solid #ff8c00;
+    position: relative;
+    z-index: 10;
 }
 
-/* ----- Contenedor principal del footer ----- */
 .footer-container {
-  max-width: 1200px;           /* Ancho máximo para centrar */
-  margin: 0 auto;              /* Centrar horizontalmente */
-  display: grid;               /* Usamos CSS Grid */
-  grid-template-columns: 1fr;  /* En pantallas pequeñas, 1 columna */
-  gap: 20px;                   /* Espaciado entre secciones */
-  text-align: center;          /* Centrado en móviles */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 40px;
+    text-align: center;
 }
 
-/* ----- Secciones del footer ----- */
+/* =========================================
+   TÍTULOS DE SECCIÓN
+   ========================================= */
 .footer-section h4 {
-  font-size: 20px;
-  margin-bottom: 15px;
-  color: orange;              /* Amarillo */
+    color: #ff8c00;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
 }
 
-.footer-section p,
-.footer-section ul,
-.footer-section a {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #fff;
-  margin: 0;
+/* Línea decorativa bajo el título */
+.footer-section h4::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #555;
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
-/* Lista de enlaces */
+.footer-section p {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* =========================================
+   ENLACES
+   ========================================= */
 .footer-section ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0 auto !important;  /* Centra horizontalmente */
-  flex-wrap: wrap !important; /* Que se partan en varias líneas */
-  justify-content: center !important;
-  gap: 15px;
-  max-width: 100%;            /* Que no excedan el ancho */
-  overflow: visible !important; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-section ul li {
-  margin: 0;                   
+    margin-bottom: 12px;
 }
 
 .footer-section ul li a {
-  text-decoration: none;
-  color: #fff;
-  transition: color 0.3s ease;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .footer-section ul li a:hover {
-  color: orange;
+    color: #ff8c00;
+    transform: translateX(5px);
 }
 
-/* ----- Redes sociales ----- */
+/* =========================================
+   REDES SOCIALES
+   ========================================= */
 .social-icons {
-  display: flex;
-  justify-content: center; /* Centrado en pantallas pequeñas */
-  flex-wrap: wrap;         /* Permite que los íconos se ajusten si no hay espacio */
-  gap: 10px;
-  margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: #333;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
 .social-icons a img {
-  width: 28px;
-  height: 28px;
-  transition: transform 0.3s ease;
+    width: 22px;
+    height: 22px;
+    filter: invert(1);
+    transition: transform 0.3s ease;
 }
 
-.social-icons a img:hover {
-  transform: scale(1.2);
+.social-icons a:hover {
+    background: #ff8c00;
+    border-color: #ff8c00;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
 }
 
-/* ----- Pie de página inferior ----- */
+/* =========================================
+   PIE DE PÁGINA (COPYRIGHT)
+   ========================================= */
 .footer-bottom {
-  text-align: center;
-  margin-top: 20px;
-  border-top: 1px solid #333;
-  padding-top: 20px;
-  font-size: 12px;
-  color: #999;
-  margin-bottom: 20px;
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    color: #777;
+    font-size: 14px;
 }
 
-/* ----- Media Queries para pantallas más grandes ----- */
+/* =========================================
+   RESPONSIVE (PC / TABLET)
+   ========================================= */
 @media (min-width: 768px) {
-  .footer-container {
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablets y desktops */
-    text-align: left;                      /* Texto alineado a la izquierda */
-  }
-  .social-icons {
-    justify-content: flex-start;           /* Redes sociales a la izquierda */
-  }
-}
+    .footer-container {
+        text-align: left;
+    }
 
+    .footer-section h4::after {
+        margin: 10px 0 0;
+    }
+    
+    .social-icons {
+        justify-content: flex-start;
+    }
+}

@@ -7,77 +7,15 @@
     <link rel="stylesheet" href="./CSS/index/index.css">
     <link rel="stylesheet" href="./CSS/index/carrusel.css">
     <link rel="stylesheet" href="./CSS/footer/footer.css">
-    <link rel="stylesheet" href="./CSS/header/header.css">
-    <link rel="shortcut icon" href="./img/logo.png"/>
-    <link rel="stylesheet" href="./CSS/index/errorfiltros.css">
+    <link rel="stylesheet" href="./CSS/header/header.css"> <link rel="stylesheet" href="./CSS/index/errorfiltros.css">
+    <link rel="shortcut icon" href="./imagenes/img/logo.png"/>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img src="img/logo.png" alt="Logo">
-            <h1 class="logo-title">ELEMENTAL STAY</h1>
-        </div>
-
-        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-        <label for="menu-toggle" class="menu-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-
-        <ul>
-            <li><a href="index.html" id="boton-superior"><b>INICIO</b></a></li>
-            <li><a href="reservas/reservas.html" class="boton-superior"><b>RESERVAS</b></a></li>            
-            <li><a href="hoteles/hoteles.html" id="boton-superior"><b>HOTELES</b></a></li>
-            <li><a href="contactos/contactos.html" id="boton-superior"><b>CONTACTO</b></a></li>
-    
-            <li class="profile" id="profileLi" style="display: none;">
-                <a href="javascript:void(0);" onclick="toggleProfileMenu(event)" id="profileButton"><b>PERFIL</b></a>
-                <div class="profile-menu" id="profileMenu">
-                    <a href="./perfil/perfil.html">Ver Perfil</a>
-                    <a href="#" onclick="cerrarSesionSimulado()" class="logout">Cerrar Sesión</a>
-                </div>
-            </li>
-
-            <li id="loginLi">
-                <a href="./inicio_session/inicio_session.html" id="boton-superior"><b>INICIAR SESIÓN</b></a>
-            </li>
-        </ul>
-    </nav>
-
-    <script>
-        // Función para el menú desplegable
-        function toggleProfileMenu(event) {
-            event.stopPropagation(); 
-            var menu = document.getElementById('profileMenu');
-            menu.classList.toggle('show'); 
-        }
-
-        // Función para cerrar sesión (Simulación)
-        function cerrarSesionSimulado() {
-            alert("Has cerrado sesión (Modo Demo)");
-            document.getElementById('profileLi').style.display = 'none';
-            document.getElementById('loginLi').style.display = 'block';
-        }
-
-        // Cerrar el menú al hacer clic fuera
-        window.onclick = function(event) {
-            if (!event.target.matches('#profileButton') && !event.target.matches('.profile-menu') && !event.target.closest('.profile')) {
-                var dropdowns = document.getElementsByClassName('profile-menu');
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show'); 
-                    }
-                }
-            }
-        }
-    </script>
 
     <section class="search-wrapper">
       <div class="search-card">
         <div class="search-card__logo">
-          <img src="./img/logo.png" alt="Logo del hotel">
+          <img src="./imagenes/img/logo.png" alt="Logo del hotel">
         </div>
 
         <div class="search-card__filters">
@@ -148,9 +86,10 @@
     <h2 class="carousel-general-title">Galería de Imágenes de Hoteles</h2>
 
     <div class="gallery-wrapper">
+      
       <section id="carousel1" class="carousel-container">
         <a href="hoteles/hoteles.html">
-          <img class="carousel-image" src="" alt="Carrusel Ciudad">
+          <img class="carousel-image" src="imagenes/img/hotelPrincipal.jpg" alt="Carrusel Ciudad">
         </a>
         <div class="carousel-caption">
           <h3>Hoteles Ciudad</h3>
@@ -160,7 +99,7 @@
 
       <section id="carousel2" class="carousel-container">
         <a href="hoteles/hoteles.html">
-          <img class="carousel-image" src="" alt="Carrusel Playa">
+          <img class="carousel-image" src="imagenes/images/s2.jpg" alt="Carrusel Playa">
         </a>  
         <div class="carousel-caption">
           <h3>Hoteles Playa</h3>
@@ -170,7 +109,7 @@
 
       <section id="carousel3" class="carousel-container">
         <a href="hoteles/hoteles.html">
-          <img class="carousel-image" src="" alt="Carrusel Montaña">
+          <img class="carousel-image" src="imagenes/images/s3.jpg" alt="Carrusel Montaña">
         </a>
         <div class="carousel-caption">
           <h3>Hoteles Montaña</h3>
@@ -188,39 +127,10 @@
         </div>
       <button class="arrow next" id="room-next">❯</button>
     </section>
-    
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>Sobre Nosotros</h4>
-                <p>Elemental Stay es tu plataforma para encontrar los mejores alojamientos al mejor precio, con opciones personalizadas para cada tipo de viajero.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Enlaces Útiles</h4>
-                  <ul>
-                      <li><a href="index.html">Inicio</a></li>
-                      <li><a href="footer/AcercaDe.html">Acerca de</a></li>
-                      <li><a href="contactos/contactos.html">Contacto</a></li>
-                      <li><a href="footer/TerminosyCondiciones.html">Términos y Condiciones</a></li>
-                  </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Síguenos</h4>
-                <div class="social-icons">
-                    <a href="#"><img src="icon-facebook.svg" alt="Facebook"></a>
-                    <a href="#"><img src="icon-twitter.svg" alt="Twitter"></a>
-                    <a href="#"><img src="icon-instagram.svg" alt="Instagram"></a>
-                    <a href="#"><img src="icon-youtube.svg" alt="YouTube"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Elemental Stay. Todos los derechos reservados.</p>
-        </div>
-    </footer>
 
     <script src="JS/Carrusel.js"></script>
-    <script src="JS/Header.js"></script>
     <script src="JS/errorfiltros.js"></script>
+    <script src="JS/Footer.js"></script>
+    <script src="JS/Header.js"></script>
 </body>
 </html>

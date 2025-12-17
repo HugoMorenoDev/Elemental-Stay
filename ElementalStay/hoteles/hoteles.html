@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elemental Stay - Hoteles seleccionados</title>
+    <link rel="stylesheet" href="../CSS/header/header.css"/>
+    <link rel="stylesheet" href="../CSS/hoteles/hoteles.css"/>
+    <link rel="stylesheet" href="../CSS/footer/footer.css"/>
+    <link rel="shortcut icon" href="../imagenes/img/logo.png"/>
+</head>
+<body>    
+    <script>
+        function toggleProfileMenu(event) {
+            event.stopPropagation();
+            var menu = document.getElementById('profileMenu');
+            menu.classList.toggle('show');
+        }
+        function cerrarSesionSimulado() {
+            alert("Has cerrado sesión (Modo Demo)");
+            document.getElementById('profileLi').style.display = 'none';
+            document.getElementById('loginLi').style.display = 'block';
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('#profileButton') && !event.target.closest('.profile')) {
+                var dropdowns = document.getElementsByClassName('profile-menu');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    dropdowns[i].classList.remove('show');
+                }
+            }
+        }
+    </script>
+    
+    <div class="wrapper">
+    <main>
+        <div class="container">
+            <h1 style="text-align: center; margin-top: 20px;">Nuestros Hoteles Destacados</h1>
+            
+            <section class="results" id="hotel-list">
+
+                <article class="hotel-card">
+                    <div class="hotel-card__image">
+                        <img src="../imagenes/img/hotelPrincipal.jpg" alt="Imagen de Gran Hotel Madrid" loading="lazy">
+                    </div>
+
+                    <div class="hotel-card__content">
+                        <div class="hotel-card__header">
+                            <h3 class="hotel-card__name">Gran Hotel Madrid</h3>
+                            <p class="hotel-card__stars">⭐⭐⭐⭐⭐</p>
+                        </div>
+                        <p class="hotel-card__description">Un hotel de lujo en el corazón de la capital. Perfecto para viajes de negocios y turismo cultural. Disfruta de nuestras suites premium y spa.</p>
+                        <ul class="hotel-card__details">
+                            <li><strong>Comunidad:</strong> Madrid</li>
+                            <li><strong>Precio:</strong> Desde 120.00€ <span class="incluye">Incluye impuestos y cargos</span></li>
+                        </ul>
+                        <div class="hotel-card__footer">
+                            <a href="../reservas/reservas.html" class="hotel-card__btn">Ver más</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="hotel-card">
+                    <div class="hotel-card__image">
+                        <img src="../imagenes/images/s2.jpg" alt="Imagen de Resort Playa Valencia" loading="lazy">
+                    </div>
+                    <div class="hotel-card__content">
+                        <div class="hotel-card__header">
+                            <h3 class="hotel-card__name">Resort Playa Valencia</h3>
+                            <p class="hotel-card__stars">⭐⭐⭐⭐</p>
+                        </div>
+                        <p class="hotel-card__description">Disfruta del sol y la playa en este magnífico resort con todo incluido. Acceso directo a la playa y piscinas infinitas.</p>
+                        <ul class="hotel-card__details">
+                            <li><strong>Comunidad:</strong> Valencia</li>
+                            <li><strong>Precio:</strong> Desde 95.00€ <span class="incluye">Incluye impuestos y cargos</span></li>
+                        </ul>
+                        <div class="hotel-card__footer">
+                            <a href="../reservas/reservas.html" class="hotel-card__btn">Ver más</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="hotel-card">
+                    <div class="hotel-card__image">
+                        <img src="../imagenes/images/s3.jpg" alt="Imagen de Cabaña Rural Cantabria" loading="lazy">
+                    </div>
+                    <div class="hotel-card__content">
+                        <div class="hotel-card__header">
+                            <h3 class="hotel-card__name">Cabaña Rural Cantabria</h3>
+                            <p class="hotel-card__stars">⭐⭐⭐</p>
+                        </div>
+                        <p class="hotel-card__description">Conecta con la naturaleza en nuestras acogedoras cabañas de montaña. Ideal para senderismo y desconexión total.</p>
+                        <ul class="hotel-card__details">
+                            <li><strong>Comunidad:</strong> Cantabria</li>
+                            <li><strong>Precio:</strong> Desde 85.00€ <span class="incluye">Incluye impuestos y cargos</span></li>
+                        </ul>
+                        <div class="hotel-card__footer">
+                            <a href="../reservas/reservas.html" class="hotel-card__btn">Ver más</a>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </div>
+    </main>
+    </div>
+
+    <script src="../JS/Header.js"></script>
+    <script src="../JS/hoteles.js"></script>
+    <script src="../JS/Footer.js"></script>
+
+</body>
+</html>
